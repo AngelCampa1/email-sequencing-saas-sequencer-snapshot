@@ -1,0 +1,237 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1778523685794,
+      "tag": "0000_powerful_monster_badoon",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1778800000000,
+      "tag": "0001_product_lead_magnet_buckets",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1779200002000,
+      "tag": "0001_seed_products",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1779200003000,
+      "tag": "0002_live_products",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1779200004000,
+      "tag": "0003_remove_retired_product_sequences",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "6",
+      "when": 1779200005000,
+      "tag": "0004_fix_geoleap_sender_domain",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "6",
+      "when": 1779200006000,
+      "tag": "0005_fix_gathergrove_skillledger_sender_domains",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "6",
+      "when": 1779200007000,
+      "tag": "0006_one_running_run_per_contact",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "6",
+      "when": 1779200008000,
+      "tag": "0007_product_brand_colors",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "6",
+      "when": 1779206388485,
+      "tag": "0009_cultured_killmonger",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "6",
+      "when": 1779206500000,
+      "tag": "0010_contact_timeline_indexes",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "6",
+      "when": 1779206600000,
+      "tag": "0011_unique_provider_events",
+      "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "6",
+      "when": 1779206700000,
+      "tag": "0012_delivered_messages",
+      "breakpoints": true
+    },
+    {
+      "idx": 13,
+      "version": "6",
+      "when": 1779206800000,
+      "tag": "0013_contact_source_label",
+      "breakpoints": true
+    },
+    {
+      "idx": 14,
+      "version": "6",
+      "when": 1779206900000,
+      "tag": "0014_unique_contact_products",
+      "breakpoints": true
+    },
+    {
+      "idx": 15,
+      "version": "6",
+      "when": 1779207000000,
+      "tag": "0015_contact_product_profiles",
+      "breakpoints": true
+    },
+    {
+      "idx": 16,
+      "version": "6",
+      "when": 1779207100000,
+      "tag": "0016_product_scoped_sequence_runs",
+      "breakpoints": true
+    },
+    {
+      "idx": 17,
+      "version": "6",
+      "when": 1779207200000,
+      "tag": "0017_step_message_idempotency",
+      "breakpoints": true
+    },
+    {
+      "idx": 18,
+      "version": "6",
+      "when": 1779207300000,
+      "tag": "0018_provider_event_ids",
+      "breakpoints": true
+    },
+    {
+      "idx": 19,
+      "version": "6",
+      "when": 1779207400000,
+      "tag": "0019_event_side_effect_completion",
+      "breakpoints": true
+    },
+    {
+      "idx": 20,
+      "version": "6",
+      "when": 1779207500000,
+      "tag": "0020_event_side_effect_leases",
+      "breakpoints": true
+    },
+    {
+      "idx": 21,
+      "version": "6",
+      "when": 1779207600000,
+      "tag": "0021_message_failure_tracking",
+      "breakpoints": true
+    },
+    {
+      "idx": 22,
+      "version": "6",
+      "when": 1779836219896,
+      "tag": "0022_instantly_campaign_product_mapping",
+      "breakpoints": true
+    },
+    {
+      "idx": 23,
+      "version": "6",
+      "when": 1779837593385,
+      "tag": "0023_unique_instantly_campaign_daily_stats",
+      "breakpoints": true
+    },
+    {
+      "idx": 24,
+      "version": "6",
+      "when": 1779840000000,
+      "tag": "0024_rate_limit_windows",
+      "breakpoints": true
+    },
+    {
+      "idx": 25,
+      "version": "6",
+      "when": 1779840100000,
+      "tag": "0025_guard_sequence_run_product_scope",
+      "breakpoints": true
+    },
+    {
+      "idx": 26,
+      "version": "6",
+      "when": 1779840200000,
+      "tag": "0026_rebrand_boardstack_to_gavelhouse",
+      "breakpoints": true
+    },
+    {
+      "idx": 27,
+      "version": "6",
+      "when": 1779926600000,
+      "tag": "0027_normalize_sender_to_angel_campa",
+      "breakpoints": true
+    },
+    {
+      "idx": 28,
+      "version": "6",
+      "when": 1779926700000,
+      "tag": "0028_lists",
+      "breakpoints": true
+    },
+    {
+      "idx": 29,
+      "version": "6",
+      "when": 1781200406178,
+      "tag": "0029_instantly_suppression_jobs",
+      "breakpoints": true
+    },
+    {
+      "idx": 30,
+      "version": "6",
+      "when": 1781221380000,
+      "tag": "0030_remove_shutdown_products",
+      "breakpoints": true
+    },
+    {
+      "idx": 31,
+      "version": "6",
+      "when": 1783120000000,
+      "tag": "0031_remove_capveri_lextract",
+      "breakpoints": true
+    },
+    {
+      "idx": 32,
+      "version": "6",
+      "when": 1783933200000,
+      "tag": "0032_remove_grantpipe",
+      "breakpoints": true
+    }
+  ]
+}

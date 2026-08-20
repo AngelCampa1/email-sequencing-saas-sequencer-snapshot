@@ -1,0 +1,83 @@
+slug: camaudit-partner-trial
+product: camaudit
+version: 1
+goal: partner_paid_conversion
+exit_conditions:
+  - event: signup_completed
+  - event: paid_conversion
+  - event: unsubscribed
+steps:
+  - id: step-0
+    delay: 1d
+    template: legacy/camaudit/partner_trial_setup
+    subject: Your white-label workspace is ready
+  - id: step-1
+    delay: 1d
+    template: legacy/camaudit/partner_trial_first_audit
+    subject: Pick the right first CAM audit file
+  - id: step-2
+    delay: 1d
+    template: legacy/camaudit/partner_trial_branded_report
+    subject: What your branded report proves to clients
+  - id: step-3
+    delay: 1d
+    template: legacy/camaudit/partner_trial_pricing_proof
+    subject: The margin math for your CAM audit offer
+  - id: step-4
+    delay: 1d
+    template: legacy/camaudit/partner_trial_choose_plan
+    subject: Turn the trial into a repeatable CAM review offer
+  - id: value-6
+    skip_if:
+      replied: true
+    template: legacy/camaudit/sequence_value_6
+    subject: A CAM evidence trail worth keeping
+    delay: 1d
+  - id: value-7
+    skip_if:
+      replied: true
+    template: legacy/camaudit/sequence_value_7
+    subject: Use a simple threshold before escalating
+    delay: 1d
+  - id: value-8
+    delay: 1d
+    skip_if:
+      replied: true
+    template: legacy/camaudit/sequence_value_8
+    subject: How a gross-up clause can raise your share
+  - id: value-9
+    delay: 1d
+    skip_if:
+      replied: true
+    template: legacy/camaudit/sequence_value_9
+    subject: Base year errors repeat every year
+  - id: value-10
+    delay: 1d
+    skip_if:
+      replied: true
+    template: legacy/camaudit/sequence_value_10
+    subject: A cap only helps if someone tracks it
+  - id: value-11
+    delay: 1d
+    skip_if:
+      replied: true
+    template: legacy/camaudit/sequence_value_11
+    subject: How to read a year-end reconciliation
+  - id: value-12
+    delay: 1d
+    skip_if:
+      replied: true
+    template: legacy/camaudit/sequence_value_12
+    subject: The costs that land in the wrong bucket
+  - id: value-13
+    delay: 1d
+    skip_if:
+      replied: true
+    template: legacy/camaudit/sequence_value_13
+    subject: Know your audit rights and the deadline
+  - id: value-14
+    delay: 1d
+    skip_if:
+      replied: true
+    template: legacy/camaudit/sequence_value_14
+    subject: A yearly habit that keeps CAM in check

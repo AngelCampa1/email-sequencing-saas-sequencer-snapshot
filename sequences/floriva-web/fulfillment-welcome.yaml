@@ -1,0 +1,98 @@
+slug: floriva-web-fulfillment-welcome
+product: floriva-web
+version: 2
+goal: activate_account
+exit_conditions:
+  - event: replied
+  - event: unsubscribed
+enroll:
+  trigger: signup
+steps:
+  - id: welcome
+    delay: 0m
+    template: onboarding/floriva-web-welcome
+    subject: Welcome to Floriva
+  - id: resource
+    delay: 1d
+    skip_if:
+      replied: true
+    template: nurture/floriva-web-resource
+    subject: Your period app privacy checklist
+  - id: value-2
+    skip_if:
+      replied: true
+    template: nurture/floriva-web-value-2
+    subject: Log your first cycle in Floriva
+    delay: 0m
+  - id: value-3
+    skip_if:
+      replied: true
+    template: nurture/floriva-web-value-3
+    subject: Check the permissions you gave
+    delay: 1d
+  - id: value-4
+    skip_if:
+      replied: true
+    template: nurture/floriva-web-value-4
+    subject: Delete your old app data
+    delay: 1d
+  - id: value-5
+    skip_if:
+      replied: true
+    template: nurture/floriva-web-value-5
+    subject: Add the symptoms you care about
+    delay: 1d
+  - id: value-6
+    skip_if:
+      replied: true
+    template: nurture/floriva-web-value-6
+    subject: Set up your private backup
+    delay: 1d
+  - id: value-7
+    skip_if:
+      replied: true
+    template: nurture/floriva-web-value-7
+    subject: Tell a friend why you switched
+    delay: 1d
+  - id: value-8
+    skip_if:
+      replied: true
+    template: nurture/floriva-web-value-8
+    subject: Look at three cycles together
+    delay: 1d
+  - id: value-9
+    skip_if:
+      replied: true
+    template: nurture/floriva-web-value-9
+    subject: Notice how seasons affect your cycle
+    delay: 1d
+  - id: value-10
+    skip_if:
+      replied: true
+    template: nurture/floriva-web-value-10
+    subject: Use Floriva before your next appointment
+    delay: 1d
+  - id: value-11
+    skip_if:
+      replied: true
+    template: nurture/floriva-web-value-11
+    subject: Check your phone privacy settings again
+    delay: 1d
+  - id: value-12
+    skip_if:
+      replied: true
+    template: nurture/floriva-web-value-12
+    subject: Log energy alongside your cycle
+    delay: 1d
+  - id: value-13
+    skip_if:
+      replied: true
+    template: nurture/floriva-web-value-13
+    subject: Review what you track in Floriva
+    delay: 1d
+  - id: value-14
+    skip_if:
+      replied: true
+    template: nurture/floriva-web-value-14
+    subject: Keep your private health log going
+    delay: 1d

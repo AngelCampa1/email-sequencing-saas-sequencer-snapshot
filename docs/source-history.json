@@ -1,0 +1,29 @@
+{
+  "note": "Provenance record for this snapshot. The private repository this was exported from is not public; these figures are what a reader would otherwise have to take on trust.",
+  "sourceCommit": "43f6159ba51f05f4f71b7ad84d8e4315faaa4d10",
+  "commits": 698,
+  "firstCommitDate": "2026-05-11",
+  "lastCommitDate": "2026-07-13",
+  "archiveTag": "archived-into-camaudit-v2-2026-07-13",
+  "authors": [
+    { "commits": 675, "author": "Angel Campa <operator@ventoralabs.com>" },
+    { "commits": 16, "author": "VentoraLabs <operator@ventoralabs.com>" },
+    { "commits": 5, "author": "AI Alex <ai.alex@ventoralabs.com>" },
+    { "commits": 2, "author": "Ventora Labs <operator@ventoralabs.com>" }
+  ],
+  "authorsNote": "Four author identities, one person plus one agent identity used for AI-generated commits. The operator's own address appears here as operator@ventoralabs.com, the role address used throughout this tree. The four identities and their counts are unchanged and sum to 698, so the table still reconciles.",
+  "afterArchival": {
+    "foldedInto": "a larger private monorepo, as a git subtree with full history preserved",
+    "foldDate": "2026-07-13",
+    "commitsTouchingSequencerAfterFold": 9,
+    "lastCommitTouchingSequencer": "2026-08-11",
+    "note": "The nine post-fold commits are fixes and cleanup - type errors, copy corrections, a sync guard, deploy scoping. No new capability was added after archival."
+  },
+  "snapshot": {
+    "exportedFrom": "the archived private repository at its final commit",
+    "filesInSource": 551,
+    "filesInSnapshot": 602,
+    "difference": "7 source files withheld (an internal archive note, an operations note, a data-handling note, two sweep-tracking working docs, one design doc superseded by its published version, one product logo). 58 files added for publication: this README and docs/README.md, source-history.json itself, the replacement design doc, eight portfolio documents, 41 screenshots, the two-script capture and metrics harness, a LICENSE, a .gitattributes, and the publication verification ledger. 551 - 7 + 58 = 602.",
+    "sanitized": "Cloudflare resource identifiers replaced with PLACEHOLDER_* tokens; the operator's email address replaced with reserved-domain and role addresses throughout the text. Three screenshots (portfolio/screenshots/desktop/04-products.png, 31-settings.png and 32-settings-cf-setup-expanded.png) still show the operator's real sender addresses on their own product domains, because that is the sending identity the product was configured with and the screenshots were not re-captured. No contact or customer address appears anywhere; those use RFC 2606 reserved domains."
+  }
+}

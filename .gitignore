@@ -1,0 +1,30 @@
+node_modules/
+dist/
+.wrangler/
+*.local
+.env
+.env.*
+!.env.example
+
+# Local Worker secrets. `wrangler dev` auto-loads .dev.vars, and .env.* does not
+# match it. Nothing in this repo may ever commit a real secret or resource id.
+.dev.vars
+.dev.vars.*
+
+*.d.ts.map
+.DS_Store
+.claude/
+.clone/
+.worktrees/
+.playwright-cli/
+.playwright-mcp/
+*.tsbuildinfo
+
+coverage/
+
+# Local database and log artifacts. The only sqlite files today live under the
+# already-ignored .wrangler/ state directory; these are defence in depth.
+*.sqlite
+*.sqlite3
+*.db
+*.log

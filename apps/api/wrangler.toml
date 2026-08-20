@@ -1,0 +1,200 @@
+name = "sequencer-api"
+main = "src/index.ts"
+compatibility_date = "2025-05-01"
+compatibility_flags = ["nodejs_compat"]
+
+[assets]
+directory = "../web/dist"
+not_found_handling = "single-page-application"
+run_worker_first = ["/api/*", "/me", "/webhooks/*", "/unsubscribe", "/assets/lead-magnets/*", "/health"]
+
+[vars]
+ENVIRONMENT = "development"
+# GIT_SHA is injected at deploy time by the guarded root deploy scripts.
+
+# ---------------------------------------------------------------------------
+# PLACEHOLDER_* convention
+#
+# Every value below written as PLACEHOLDER_<NAME> is a real Cloudflare resource
+# identifier that is deliberately not committed. Run `pnpm setup:cf` to print the
+# wrangler commands that create each resource, then substitute the identifiers it
+# reports before deploying. `apps/api/src/__tests__/wrangler-config.test.ts` fails
+# the build if a real identifier is ever committed here.
+#
+# Local development needs none of them: `wrangler dev --local` simulates D1, KV,
+# R2, Queues, Analytics Engine and the Durable Object entirely offline.
+# ---------------------------------------------------------------------------
+
+# D1 Database
+# Create with: pnpm exec wrangler d1 create sequencer-db
+# Then substitute the reported database_id below.
+[[d1_databases]]
+binding = "DB"
+database_name = "sequencer-db"
+database_id = "PLACEHOLDER_D1_DATABASE_ID"
+migrations_dir = "../../packages/db/migrations"
+
+# KV Namespaces
+# Create with: pnpm exec wrangler kv namespace create SUPPRESSIONS
+# Create preview: wrangler kv namespace create SUPPRESSIONS --preview
+[[kv_namespaces]]
+binding = "SUPPRESSIONS"
+id = "PLACEHOLDER_KV_SUPPRESSIONS_ID"
+preview_id = "PLACEHOLDER_KV_SUPPRESSIONS_PREVIEW_ID"
+
+# Create with: pnpm exec wrangler kv namespace create SESSIONS
+[[kv_namespaces]]
+binding = "SESSIONS"
+id = "PLACEHOLDER_KV_SESSIONS_ID"
+preview_id = "PLACEHOLDER_KV_SESSIONS_PREVIEW_ID"
+
+# R2 Buckets
+# Create with: pnpm exec wrangler r2 bucket create sequencer-assets
+[[r2_buckets]]
+binding = "ASSETS_BUCKET"
+bucket_name = "sequencer-assets"
+preview_bucket_name = "sequencer-assets-dev"
+
+[[r2_buckets]]
+binding = "CAMAUDIT_ASSETS"
+bucket_name = "camaudit"
+preview_bucket_name = "camaudit"
+
+[[r2_buckets]]
+binding = "FLORIVA_LEAD_MAGNETS"
+bucket_name = "floriva-lead-magnets"
+preview_bucket_name = "floriva-lead-magnets"
+
+# Create with: pnpm exec wrangler r2 bucket create sequencer-logs
+[[r2_buckets]]
+binding = "LOGS_BUCKET"
+bucket_name = "sequencer-logs"
+preview_bucket_name = "sequencer-logs-dev"
+
+# Queues
+# Create with: pnpm exec wrangler queues create events-queue
+# Create with: pnpm exec wrangler queues create dead-letter-queue
+[[queues.producers]]
+binding = "EVENTS_QUEUE"
+queue = "events-queue"
+
+[[queues.producers]]
+binding = "DEAD_LETTER_QUEUE"
+queue = "dead-letter-queue"
+
+[[queues.consumers]]
+queue = "events-queue"
+max_batch_size = 50
+max_batch_timeout = 5
+max_retries = 3
+dead_letter_queue = "dead-letter-queue"
+
+# Analytics Engine
+# No creation needed; declare the binding.
+[[analytics_engine_datasets]]
+binding = "ANALYTICS"
+dataset = "sequencer_metrics"
+
+# Durable Objects
+[[durable_objects.bindings]]
+name = "SEQUENCE_RUN"
+class_name = "SequenceRunDO"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["SequenceRunDO"]
+
+# Cron Triggers
+[triggers]
+crons = [
+  "0 * * * *",    # hourly: Instantly stats sync
+  "0 3 * * *",    # daily 03:00 UTC: domain health rollup
+  "30 3 * * *",   # daily 03:30 UTC: rot detector
+  "0 4 * * *",    # daily 04:00 UTC: D1 JSON backup artifact to R2
+]
+
+# Secrets are set via pnpm apply:prod-config after filling dist templates.
+# The full set is declared on the Env interface in src/types.ts.
+# RESEND_API_KEY_CAMAUDIT
+# RESEND_API_KEY_FLORIVA_WEB
+# RESEND_WEBHOOK_SECRET
+# INSTANTLY_API_KEY
+# INSTANTLY_WEBHOOK_SECRET             (shared secret sent via x-instantly-webhook-secret)
+# INSTANTLY_CONVERTED_SIGNUPS_LIST_ID
+# UNSUBSCRIBE_SIGNING_SECRET           (required: the Durable Object throws without it)
+# SENTRY_DSN
+#
+# CF_ACCESS_TEAM_NAME and CF_ACCESS_AUD are NOT secrets. They are plaintext vars,
+# set under [env.production] below. Neither is confidential, but both identify a
+# live Zero Trust tenant, so the committed values are PLACEHOLDER_* tokens.
+
+[env.production]
+vars = { ENVIRONMENT = "production", CF_ACCESS_TEAM_NAME = "PLACEHOLDER_CF_ACCESS_TEAM_NAME", CF_ACCESS_AUD = "PLACEHOLDER_CF_ACCESS_AUD" }
+
+[env.production.assets]
+directory = "../web/dist"
+not_found_handling = "single-page-application"
+run_worker_first = ["/api/*", "/me", "/webhooks/*", "/unsubscribe", "/assets/lead-magnets/*", "/health"]
+
+[[env.production.d1_databases]]
+binding = "DB"
+database_name = "sequencer-db"
+database_id = "PLACEHOLDER_D1_DATABASE_ID"
+migrations_dir = "../../packages/db/migrations"
+
+[[env.production.kv_namespaces]]
+binding = "SUPPRESSIONS"
+id = "PLACEHOLDER_KV_SUPPRESSIONS_ID"
+preview_id = "PLACEHOLDER_KV_SUPPRESSIONS_PREVIEW_ID"
+
+[[env.production.kv_namespaces]]
+binding = "SESSIONS"
+id = "PLACEHOLDER_KV_SESSIONS_ID"
+preview_id = "PLACEHOLDER_KV_SESSIONS_PREVIEW_ID"
+
+[[env.production.r2_buckets]]
+binding = "ASSETS_BUCKET"
+bucket_name = "sequencer-assets"
+preview_bucket_name = "sequencer-assets-dev"
+
+[[env.production.r2_buckets]]
+binding = "CAMAUDIT_ASSETS"
+bucket_name = "camaudit"
+preview_bucket_name = "camaudit"
+
+[[env.production.r2_buckets]]
+binding = "FLORIVA_LEAD_MAGNETS"
+bucket_name = "floriva-lead-magnets"
+preview_bucket_name = "floriva-lead-magnets"
+
+[[env.production.r2_buckets]]
+binding = "LOGS_BUCKET"
+bucket_name = "sequencer-logs"
+preview_bucket_name = "sequencer-logs-dev"
+
+[[env.production.queues.producers]]
+binding = "EVENTS_QUEUE"
+queue = "events-queue"
+
+[[env.production.queues.producers]]
+binding = "DEAD_LETTER_QUEUE"
+queue = "dead-letter-queue"
+
+[[env.production.queues.consumers]]
+queue = "events-queue"
+max_batch_size = 50
+max_batch_timeout = 5
+max_retries = 3
+dead_letter_queue = "dead-letter-queue"
+
+[[env.production.analytics_engine_datasets]]
+binding = "ANALYTICS"
+dataset = "sequencer_metrics"
+
+[[env.production.durable_objects.bindings]]
+name = "SEQUENCE_RUN"
+class_name = "SequenceRunDO"
+
+[[env.production.migrations]]
+tag = "v1"
+new_sqlite_classes = ["SequenceRunDO"]

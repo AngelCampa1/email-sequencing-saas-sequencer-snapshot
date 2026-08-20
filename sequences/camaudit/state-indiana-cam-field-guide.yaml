@@ -1,0 +1,98 @@
+slug: camaudit-state-indiana-cam-field-guide
+product: camaudit
+version: 1
+goal: book_demo_call
+exit_conditions:
+  - event: signup_completed
+  - event: paid_conversion
+  - event: replied
+  - event: booked_demo
+  - event: unsubscribed
+enroll:
+  trigger: lead_magnet_download
+  lead_magnet: state-indiana-cam-field-guide
+steps:
+  - id: step-1
+    delay: 1d
+    skip_if:
+      replied: true
+    template: legacy/camaudit/state_indiana_step_1
+    subject: How Indiana CAM law actually works
+  - id: step-2
+    delay: 1d
+    skip_if:
+      replied: true
+    template: legacy/camaudit/state_indiana_step_2
+    subject: The Indiana overcharge patterns we catch most often
+  - id: step-3
+    delay: 1d
+    skip_if:
+      replied: true
+    template: legacy/camaudit/state_indiana_step_3
+    subject: How to land your Indiana CAM dispute letter
+  - id: step-4
+    delay: 1d
+    skip_if:
+      replied: true
+    template: legacy/camaudit/state_indiana_step_4
+    subject: How to protect the Indiana CAM lookback window
+  - id: value-5
+    skip_if:
+      replied: true
+    template: legacy/camaudit/sequence_value_5
+    subject: Turn the guide into a review checklist
+    delay: 1d
+  - id: value-6
+    skip_if:
+      replied: true
+    template: legacy/camaudit/sequence_value_6
+    subject: A CAM evidence trail worth keeping
+    delay: 1d
+  - id: value-7
+    skip_if:
+      replied: true
+    template: legacy/camaudit/sequence_value_7
+    subject: Use a simple threshold before escalating
+    delay: 1d
+  - id: value-8
+    delay: 1d
+    skip_if:
+      replied: true
+    template: legacy/camaudit/sequence_value_8
+    subject: How a gross-up clause can raise your share
+  - id: value-9
+    delay: 1d
+    skip_if:
+      replied: true
+    template: legacy/camaudit/sequence_value_9
+    subject: Base year errors repeat every year
+  - id: value-10
+    delay: 1d
+    skip_if:
+      replied: true
+    template: legacy/camaudit/sequence_value_10
+    subject: A cap only helps if someone tracks it
+  - id: value-11
+    delay: 1d
+    skip_if:
+      replied: true
+    template: legacy/camaudit/sequence_value_11
+    subject: How to read a year-end reconciliation
+  - id: value-12
+    delay: 1d
+    skip_if:
+      replied: true
+    template: legacy/camaudit/sequence_value_12
+    subject: The costs that land in the wrong bucket
+  - id: value-13
+    delay: 1d
+    skip_if:
+      replied: true
+    template: legacy/camaudit/sequence_value_13
+    subject: Know your audit rights and the deadline
+  - id: value-14
+    delay: 1d
+    skip_if:
+      replied: true
+    template: legacy/camaudit/sequence_value_14
+    subject: A yearly habit that keeps CAM in check

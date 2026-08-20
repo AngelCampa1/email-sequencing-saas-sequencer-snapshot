@@ -1,0 +1,14 @@
+{
+  "name": "@sequencer/db",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "src/index.ts",
+  "exports": { ".": "./src/index.ts" },
+  "dependencies": {
+    "drizzle-orm": "^0.43.0"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.31.0",
+    "@cloudflare/workers-types": "^4.20250522.0"
+  }
+}

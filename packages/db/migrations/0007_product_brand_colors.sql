@@ -1,0 +1,12 @@
+UPDATE seq_products SET brand_color = '#1e40af' WHERE slug = 'camaudit';
+UPDATE seq_products SET brand_color = '#0f766e' WHERE slug = 'capveri';
+UPDATE seq_products SET brand_color = '#7c3aed' WHERE slug = 'lextract';
+UPDATE seq_products SET brand_color = '#059669' WHERE slug = 'geoleap';
+UPDATE seq_products SET brand_color = '#16a34a' WHERE slug = 'gathergrove';
+UPDATE seq_products SET brand_color = '#d97706' WHERE slug = 'skillledger';
+UPDATE seq_products SET brand_color = '#15803d' WHERE slug = 'floriva-web';
+UPDATE seq_products SET brand_color = '#2563eb' WHERE slug = 'grantpipe';
+UPDATE seq_products SET brand_color = '#0f766e' WHERE slug = 'pebbledesk';
+UPDATE seq_products SET brand_color = '#163a5f' WHERE slug = 'boardstack';
+UPDATE seq_products SET brand_color = '#7c3aed' WHERE slug = 'phiguard';
+UPDATE seq_products SET brand_color = '#db2777' WHERE slug = 'kaiplan';

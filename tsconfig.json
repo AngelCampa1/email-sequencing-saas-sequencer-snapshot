@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@sequencer/db": ["packages/db/src/index.ts"],
+      "@sequencer/emails": ["packages/emails/src/index.ts"],
+      "@sequencer/sdk": ["packages/sdk/src/index.ts"],
+      "@sequencer/shared": ["packages/shared/src/index.ts"]
+    }
+  },
+  "include": [
+    "packages/shared/src/**/*",
+    "packages/sdk/src/**/*"
+  ],
+  "exclude": ["node_modules", "dist", ".wrangler"]
+}

@@ -1,0 +1,3 @@
+-- Deprecated by 0016_product_scoped_sequence_runs.
+-- The original global one-running-run-per-contact cleanup could exit valid
+-- cross-product runs before product_id existed on seq_sequence_runs.
